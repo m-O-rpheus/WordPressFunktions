@@ -8,7 +8,7 @@
 // @message  - Body Inhalt (kann auch HTML sein)
 // --------------------------------------------------------------------------------------
 
-function fox_send_email_woocommerce_style( $email, $subject, $heading, $message ) {
+function wc_send_email_woocommerce_style( $email, $subject, $heading, $message ) {
 
   $mailer   = WC()->mailer();
   $wc_email = new WC_Email;
