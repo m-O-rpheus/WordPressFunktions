@@ -1,3 +1,5 @@
+<?php
+
     // Hinzufügen eines Links in die WooCommerce Orders Tabelle!
     add_filter('manage_edit-shop_order_columns', function( $columns ) {
 
@@ -13,3 +15,5 @@
         }
 
     }, 10, 2 );
+
+?>
