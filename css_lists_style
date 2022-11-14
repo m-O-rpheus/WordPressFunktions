@@ -1,0 +1,23 @@
+li {
+		display: block;
+		padding-left: 3ch;
+}
+
+li::before {
+		display: inline-block;
+		width: 3ch;
+		margin-left: -3ch;
+}
+
+ul > li::before {
+		content: "\2022";
+}
+
+ol > li::before {
+		counter-increment: c;
+		content: counter(c);
+}
+
+ol {
+		counter-reset: c;
+}
