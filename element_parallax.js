@@ -4,11 +4,11 @@
 
 		document.querySelectorAll(sel).forEach(function(sel) { 
 
-			let elem   			 = sel.getBoundingClientRect();
-			let viewport_height  = window.innerHeight;
-			let viewport_scrolly = window.scrollY;
-			let elem_height      = elem.height;
-			let elem_scrolly	 = elem.top;
+			let elem		= sel.getBoundingClientRect();
+			let viewport_height	= window.innerHeight;
+			let viewport_scrolly	= window.scrollY;
+			let elem_height		= elem.height;
+			let elem_scrolly	= elem.top;
 
 			let positionsberechnung = ( ( ( ( ( ( viewport_scrolly - ( elem_scrolly + viewport_scrolly ) ) + viewport_height ) / ( viewport_height + elem_height ) ) * 100 ) - 50 ) * 2 );
 
