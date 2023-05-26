@@ -12,6 +12,7 @@
                 grid: 0fr / 1fr;
                 gap: 0px;
                 transition: grid-template-rows 250ms linear;
+                background-color: red;
             }
 
             .akkordeon + div > div {
@@ -20,6 +21,19 @@
 
             .akkordeon[open] + div {
                 grid-template-rows: 1fr;
+            }
+            
+                        
+            
+             /* OPTIONAL: Scale */
+            .akkordeon + div > div {
+                transform: scaleY(0);
+                transform-origin: top;
+                transition: transform 250ms linear;  /* same value as above */
+            }
+
+            .akkordeon[open] + div > div {
+                transform: scaleY(1);
             }
 
         </style>
