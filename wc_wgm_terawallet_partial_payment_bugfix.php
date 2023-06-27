@@ -4,12 +4,11 @@
 
 
 
-// 1. WooCommerce -> Einstellungen -> Mehrwertsteuer -> Standard Raten:
-// Mehrwertsteuer für alle Länder auf 0% MwSt umstellen
+// 1. Alle preise müssen als Brutto Preise inklusive MwSt. eingetragen werden.
 
-// 2. Setze alle Texte die jetzt 'Enthält 0% MwSt.' enthalten, wieder zurück auf 19% indem folgendes script in die functions.php eingefügt wird.
+// 2. WooCommerce -> Einstellungen -> Mehrwertsteuer -> Standard Raten: Mehrwertsteuer für alle Länder auf 0% MwSt umstellen
 
-
+// 3. Setze alle Texte die jetzt 'Enthält 0% MwSt.' enthalten, wieder zurück auf 19% indem folgendes script in die functions.php eingefügt wird.
 
 $GLOBALS['fyff_tax_text'] = 'Enthält 19% MwSt.';
 
