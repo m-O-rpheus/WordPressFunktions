@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Scroll Snap Slider Simple CSS JS</title>
+        <style>
+
+            .slider {
+                height: 300px;
+                width: 500px;
+
+                display: block;
+                white-space: nowrap;
+                overflow: scroll hidden;
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+            }
+
+            .slider > * {
+                scroll-snap-align: start;
+                white-space: normal;
+            }
+
+            .slider > *, .slider::before, .slider::after {
+                height: 100%;
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            .slider::before, .slider::after {
+                content: "";
+                width: 100%;
+            }
+
+            .slider > * + * {
+                margin-left: 20px; /* Space Between Slides */
+            }
+
+        </style>
+        <script>
+
+            document.addEventListener("DOMContentLoaded", function() {
+
+                const setscroll = function(e, int) {
+
+                    const child = e.querySelector(':scope > :nth-child('+int+')');
+
+                    if(child !== null) {
+
+                        child.scrollIntoView({behavior: 'auto', block: 'start', inline: 'start'});
+                        e.dataset.activeslide = int;
+                    }
+                };
+
+                document.querySelectorAll('.slider').forEach(function(e) {
+
+                    setscroll(e, 1);
+
+                    e.nextElementSibling.querySelector(':scope .arrowback').addEventListener('click', () => setscroll(e, parseInt(e.dataset.activeslide) - 1) );
+                    e.nextElementSibling.querySelector(':scope .arrownext').addEventListener('click', () => setscroll(e, parseInt(e.dataset.activeslide) + 1) );
+                });
+            });
+
+        </script>
+    </head>
+    <body>
+
+        <div class="slider">
+            <div style="width: 20%; background-color: red">1</div>
+            <div style="width: 80%; background-color: green">2</div>
+            <div style="width: 50%; background-color: yellow">3</div>
+            <div style="width: 90%; background-color: blue">4</div>
+            <div style="width: 10%; background-color: purple">5</div>
+            <div style="width: 30%; background-color: gray">6</div>
+        </div>
+        <div class="arrows">
+            <div class="arrowback">BACK</div>
+            <div class="arrownext">NEXT</div>
+        </div>
+
+    </body>
+</html>
