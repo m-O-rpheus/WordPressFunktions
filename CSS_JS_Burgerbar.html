@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Burger Button Example</title>
+        <style>
+
+            .burger_btn {
+                --bar: 3px;
+                --spacing: 8px;
+                --color: blue;
+
+                width: 30px;
+                height: 30px;
+                display: grid;
+                grid: 1fr / 1fr;
+                align-items: center;
+                cursor: pointer;
+            }
+
+            .burger_btn > i {
+                height: var(--bar);
+                grid-area: 1 / 1 / 2 / 2;
+                background-color: var(--color);
+            }
+
+            .burger_btn > i {
+                pointer-events: none;
+                transition: all 250ms ease;
+            }
+
+            .burger_btn > i:first-child {
+                transform: translateY(calc(0px - var(--spacing)));
+            }
+
+            .burger_btn > i:last-child {
+                transform: translateY(var(--spacing));
+            }
+
+            .burger_btn.open > i {
+                opacity: 0;
+            }
+
+            .burger_btn.open > i:first-child {
+                transform: translateY(0px) rotate(45deg);
+                opacity: 1;
+            }
+
+            .burger_btn.open > i:last-child {
+                transform: translateY(0px) rotate(-45deg);
+                opacity: 1;
+            }
+
+        </style>
+        <script>
+
+            document.addEventListener("DOMContentLoaded", () => {
+
+                document.querySelector('.burger_btn').addEventListener('click', e => {
+
+                    e.preventDefault();
+                    e.target.classList.toggle("open");
+                });
+            });
+
+        </script>
+    </head>
+    <body>
+
+        <div class="burger_btn">
+            <i></i>
+            <i></i>
+            <i></i>
+        </div>
+
+    </body>
+</html>
